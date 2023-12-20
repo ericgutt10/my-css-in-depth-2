@@ -1,0 +1,25 @@
+
+<header>
+    <h1 id="page-title" class="title" >Wombat Coffee Roasters</h1>
+    
+    <nav>
+        @foreach(var page in pages)
+        {
+            <a href="@(page.Url)" class="  @(page.ClsOverride)">@(page.Name)</a>
+        }
+    </nav>
+</header>
+
+@code {
+
+    NavItem[] pages = 
+        [
+            new ("Home", "/", ""),
+            new ("Coffees", "/coffees",""),
+            new ("Brewers", "/brewers", ""),
+            new ("Specials", "/specials", "featured")
+        ];
+
+
+    private record NavItem(string? Name, string? Url, string? ClsOverride);
+}
